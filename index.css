@@ -1,0 +1,249 @@
+/*
+//    File Name:    index.css
+//    Author:       Artem Suprun
+//    Date:         03/04/2022
+//    Summary:      css file for index.html
+*/
+
+:root {
+    --light-grey: #E8E8E8;
+    --light-orange: #FFD580;
+    --orange: #FF8C00;
+    --violet: #6B5B95;
+    --red: #E15D44;
+    --green: #88B04B;
+    --blue: #98B4D4;
+    --yellow: #EFC050;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    font-family: Helvetica, Arial, Tahoma, sans-serif;
+}
+/*------------------------------- center-container */
+.center-container {
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*------------------------------- div */
+.div {
+    background-color: var(--light-grey, lightgrey);
+    width: 40vmin;
+    height: 40vmin;
+    position: relative;
+}
+/*------------------------------- overflow-div */
+.overflow-div {
+    overflow: hidden;
+    white-space: nowrap;
+}
+/*------------------------------- dots-div */
+.dots-div {z-index: -1;}
+
+.dots-div::after, .dots-div::before {
+    content: '';
+    background-color: var(--light-orange, orange);
+    //display: inline-block;
+    position: absolute;
+    width: 25vmin;
+    height: 25vmin;
+    border-radius: 100%;
+    z-index: -1;
+}
+
+.dots-div::before {
+    top: -11vmin;
+    left: -7vmin;
+}
+
+.dots-div::after {
+    bottom: -10vmin;
+    right: -8vmin;
+}
+/*------------------------------- sixFourColor */
+.sixFourColor {
+    background-image: linear-gradient(grey 55%, lightgrey 54%);
+}
+/*------------------------------- colorfulTxt */
+.colorfulTxt {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.colorfulTxt .txt {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*------------------------------- change-div */
+.change-div {
+    //animation: changes 10s steps(1, end)  infinite;
+    animation: changes 10s linear infinite;
+    overflow: hidden
+}
+
+@keyframes changes {
+    0% {
+        height: 40vmin;
+        width: 40vmin;
+    }
+    10% {
+        height: 10vmin;
+        width: 10vmin;
+    }
+    20% {
+        border-radius: 0;
+    }
+    30% {
+        border-radius: 100vw;
+    }
+    35% {
+        top: 0;
+        background-color: var(--light-grey, lightgrey);
+    }
+    38% {
+        top: -10vmin;
+        background-color: var(--green, lightgreen);
+    }
+    40% {
+        top: -10vmin;
+        background-color: var(--green, lightgreen);
+    }
+    42% {
+        top: -10vmin;
+        background-color: var(--green, lightgreen);
+    }
+    45% {
+        top: 0vmin;
+        background-color: var(--light-grey, lightgrey);
+    }
+    48% {border-radius: 0;}
+    50% {
+        border-radius: 0;
+        left: 0vmin;
+        transform: rotate(0deg);
+        background-color: var(--light-grey, lightgrey);
+    }
+    52% {
+        left: 10vmin;
+        transform: rotate(90deg);
+        background-color: var(--blue, dodgerblue);
+    }
+    55% {
+        left: 10vmin;
+        transform: rotate(90deg);
+        background-color: var(--blue, dodgerblue);
+    }
+    58% {
+        left: 10vmin;
+        transform: rotate(90deg);
+        background-color: var(--blue, dodgerblue);
+    }
+    60% {
+        left: 0vmin;
+        transform: rotate(0deg);
+        background-color: var(--light-grey, lightgrey);
+    }
+    80% {
+        background-color: var(--light-grey, lightgrey);
+    }
+    82% {
+        background-color: var(--red, red);
+    }
+    85% {
+        background-color: var(--red, red);
+    }
+    87% {
+        background-color: var(--red, red);
+    }
+    89% {
+        height: 10vmin;
+        width: 10vmin;
+        background-color: var(--light-grey, lightgrey);
+    }
+    95% {
+        height: 40vmin;
+        width: 40vmin;
+    }
+    100% {
+        background-color: var(--light-grey, lightgrey);
+        border-radius: 0px;
+        height: 40vmin;
+    }
+}
+/*------------------------------- spin-div */
+.spin-div {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/*------------------------------- hidden-hover */
+.hidden-hover:hover { background-color: grey; }
+
+.hidden-hover:hover .hidden { display: block; }
+
+.hidden { display: none; }
+/*------------------------------- switch */
+.switch {
+    position: relative;
+    //display: inline-block;
+    width: 6vmin;
+    height: 4vmin;
+}
+
+.switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.switch span {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: darkgrey;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.switch span:before {
+    position: absolute;
+    content: "";
+    height: 3vmin;
+    width: 3vmin;
+    left: .5vmin;
+    top: .5vmin;
+    background-color: white;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.switch input:checked + span { background-color: dodgerblue; }
+
+.switch input:checked + span:before { transform: translateX(2vmin); }
